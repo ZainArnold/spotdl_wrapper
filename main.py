@@ -82,7 +82,7 @@ def main():
     elif music_type == "S" or music_type == "s":
         folder_name = process_song(audiofiles)
 
-    rename_folder(dir_name, folder_name)
+    rename_folder(dir_name, folder_name, home)
 
 def process_album(audiofiles):
     album_name = audiofiles[0].tag.album
@@ -160,16 +160,7 @@ def delete_files_with_tag(audiofiles, tag):
                 if key in audiofile.tag.album:
                     os.remove(audiofile.path)
 
-
-
-
-
-
-
-def rename_folder(dir_name, new_dir_name):
-
-
-
+def rename_folder(dir_name, new_dir_name, home):
     temp_dir = os.path.join(home,dir_name)
 
     os.chdir(os.path.join(temp_dir,r"..\\"))
@@ -178,8 +169,6 @@ def rename_folder(dir_name, new_dir_name):
 
     os.rename(temp_dir,new_dir)
 
-
-        # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     main()
 
